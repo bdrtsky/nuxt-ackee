@@ -1,38 +1,17 @@
-version: 2
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
 jobs:
-  build:
-    docker:
-      - image: circleci/node
+  build-and-test:
+    executor:
+      name: node/default
     steps:
-      # Checkout repository
       - checkout
-
-      # Restore cache
-      - restore_cache:
-          key: yarn-cache-{{ checksum "yarn.lock" }}
-
-      # Install dependencies
-      - run:
-          name: Install Dependencies
-          command: NODE_ENV=dev yarn
-
-      # Keep cache
-      - save_cache:
-          key: yarn-cache-{{ checksum "yarn.lock" }}
-          paths:
-            - "node_modules"
-
-      # Lint
-      - run:
-          name: Lint
-          command: yarn lint
-
-      # Tests
-      - run:
-          name: Tests
-          command: yarn jest
-
-      # Coverage
-      - run:
-          name: Coverage
-          command: yarn codecov
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm test
+workflows:
+    build-and-test:
+      jobs:
+        - build-and-test
