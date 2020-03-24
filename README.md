@@ -6,7 +6,7 @@
 [![Codecov][codecov-src]][codecov-href]
 [![License][license-src]][license-href]
 
-> Nuxt.js module for Ackee analytics
+> Nuxt.js module for [Ackee analytics](https://ackee.electerious.com)
 
 [📖 **Release Notes**](./CHANGELOG.md)
 
@@ -15,27 +15,23 @@
 1. Add `nuxt-ackee` dependency to your project
 
 ```bash
-yarn add nuxt-ackee # or npm install nuxt-ackee
+yarn add --dev nuxt-ackee # or npm install --save-dev nuxt-ackee
 ```
 
-2. Add `nuxt-ackee` to the `modules` section of `nuxt.config.js`
+2. Add `nuxt-ackee` to the `buildModules` section of `nuxt.config.js`
 
 ```js
 {
-  modules: [
-    // Simple usage
-    'nuxt-ackee',
-    // With options
-    [
-      'nuxt-ackee',
-      {
-        server: 'https://example.com',
-        domainId: 'xxx-xxx-xxx',
-        ignoreLocalhost: false, // defaults to true
-        detailed: true // defaults to false
-      }
-    ]
-  ]
+  // use `modules` property is using Nuxt < 2.9.0
+  buildModules: [
+    'nuxt-ackee'
+  ],
+  ackee: {
+    server: 'https://example.com',
+    domainId: 'xxx-xxx-xxx',
+    ignoreLocalhost: false, // defaults to true
+    detailed: true // defaults to false
+  }
 }
 ```
 
