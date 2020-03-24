@@ -25,9 +25,16 @@ yarn add nuxt-ackee # or npm install nuxt-ackee
   modules: [
     // Simple usage
     'nuxt-ackee',
-
     // With options
-    ['nuxt-ackee', { /* module options */ }]
+    [
+      'nuxt-ackee',
+      {
+        server: 'https://example.com',
+        domainId: 'xxx-xxx-xxx',
+        ignoreLocalhost: false, // defaults to true
+        detailed: true // defaults to false
+      }
+    ]
   ]
 }
 ```
@@ -45,17 +52,14 @@ yarn add nuxt-ackee # or npm install nuxt-ackee
 Copyright (c) Sergey Bedritsky <sergey.bedritsky@gmail.com>
 
 <!-- Badges -->
+
 [npm-version-src]: https://img.shields.io/npm/v/nuxt-ackee/latest.svg?style=flat-square
 [npm-version-href]: https://npmjs.com/package/nuxt-ackee
-
 [npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-ackee.svg?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/nuxt-ackee
-
 [circle-ci-src]: https://img.shields.io/circleci/project/github/git@github.com:bdrtsky/nuxt-ackee.git.svg?style=flat-square
 [circle-ci-href]: https://circleci.com/gh/git@github.com:bdrtsky/nuxt-ackee.git
-
 [codecov-src]: https://img.shields.io/codecov/c/github/git@github.com:bdrtsky/nuxt-ackee.git.svg?style=flat-square
 [codecov-href]: https://codecov.io/gh/git@github.com:bdrtsky/nuxt-ackee.git
-
 [license-src]: https://img.shields.io/npm/l/nuxt-ackee.svg?style=flat-square
 [license-href]: https://npmjs.com/package/nuxt-ackee
