@@ -7,7 +7,11 @@ module.exports = {
   render: {
     resourceHints: false
   },
-  modules: [
+  buildModules: [
     { handler: require('../') }
-  ]
+  ],
+  ackee: {
+    server: 'https://example.com',
+    domainId: 'my-test'
+  }
 }
