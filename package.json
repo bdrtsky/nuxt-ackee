@@ -1,6 +1,6 @@
 {
   "name": "nuxt-ackee",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Nuxt.js module for Ackee analytics",
   "repository": "git@github.com:bdrtsky/nuxt-ackee.git",
   "license": "MIT",
