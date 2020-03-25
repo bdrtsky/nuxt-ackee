@@ -57,7 +57,7 @@ Copyright (c) Sergey Bedritsky <sergey.bedritsky@gmail.com>
 [npm-version-href]: https://npmjs.com/package/nuxt-ackee
 [npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-ackee.svg?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/nuxt-ackee
-[circle-ci-src]: https://img.shields.io/circleci/project/github/git@github.com:bdrtsky/nuxt-ackee.git.svg?style=flat-square
+[circle-ci-src]: https://img.shields.io/circleci/project/github/bdrtsky/nuxt-ackee.svg?style=flat-square
 [circle-ci-href]: https://circleci.com/gh/bdrtsky/nuxt-ackee
 [codecov-src]: https://img.shields.io/codecov/c/github/git@github.com:bdrtsky/nuxt-ackee.git.svg?style=flat-square
 [codecov-href]: https://codecov.io/gh/git@github.com:bdrtsky/nuxt-ackee.git
