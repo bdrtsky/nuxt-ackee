@@ -20,8 +20,8 @@
     "test": "yarn lint && jest"
   },
   "dependencies": {
-    "ackee-tracker": "^3.2.3",
-    "defu": "^1.0.0"
+    "ackee-tracker": "^4.0.0",
+    "defu": "^3.1.0"
   },
   "devDependencies": {
     "@babel/core": "latest",
@@ -33,7 +33,7 @@
     "babel-eslint": "latest",
     "babel-jest": "latest",
     "codecov": "latest",
-    "eslint": "^6.8.0",
+    "eslint": "^7.7.0",
     "husky": "latest",
     "jest": "latest",
     "nuxt-edge": "latest",
