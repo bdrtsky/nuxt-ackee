@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/bdrtsky/nuxt-ackee/compare/v1.0.1...v2.0.0) (2020-08-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade ackee-tracker
+
+### Features
+
+* upgrade ackee-tracker ([5d1eb8f](https://github.com/bdrtsky/nuxt-ackee/commit/5d1eb8fd40d764169e52c8d4e4244ab1d6377590))
+
+
+### Bug Fixes
+
+* boolean options ([#3](https://github.com/bdrtsky/nuxt-ackee/issues/3)) ([613ac58](https://github.com/bdrtsky/nuxt-ackee/commit/613ac58902b19c4694a57f50e7c27b61ad323c5b))
+
 ### [1.0.1](https://github.com/bdrtsky/nuxt-ackee/compare/v1.0.0...v1.0.1) (2020-05-07)
 
 ## [1.0.0](https://github.com/bdrtsky/nuxt-ackee/compare/v0.0.12...v1.0.0) (2020-03-24)
