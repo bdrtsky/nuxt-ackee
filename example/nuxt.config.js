@@ -7,11 +7,15 @@ module.exports = {
   render: {
     resourceHints: false
   },
-  buildModules: [
-    { handler: require('../') }
-  ],
+  buildModules: [{ handler: require('../') }],
   ackee: {
     server: 'https://example.com',
-    domainId: 'my-test'
+    domainId: 'xxx-xxx',
+    detailed: true,
+    ignoreLocalhost: false,
+    ignoreOwnVisits: false
+  },
+  publicRuntimeConfig: {
+    ackeeTestEvent: 'yyy-yyy'
   }
 }

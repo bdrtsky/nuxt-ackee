@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pre :style="{ display: 'inline'}">/</pre> works!
+    <pre :style="{ display: 'inline'}">/bar</pre> works!
     <ul>
       <li>
         <nuxt-link to="/">
