@@ -10,12 +10,12 @@ module.exports = {
   buildModules: [{ handler: require('../') }],
   ackee: {
     server: 'https://example.com',
-    domainId: 'xxx-xxx',
+    domainId: 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee',
     detailed: true,
     ignoreLocalhost: false,
     ignoreOwnVisits: false
   },
   publicRuntimeConfig: {
-    ackeeTestEvent: 'yyy-yyy'
+    ackeeTestEvent: 'ffffffff-gggg-hhhh-iiii-jjjjjjjjjjjj'
   }
 }
