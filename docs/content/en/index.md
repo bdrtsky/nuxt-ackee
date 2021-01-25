@@ -1,0 +1,237 @@
+---
+title: "Documentation"
+description: "Track without being tracking on Nuxt with Ackee Analytics"
+category: "Home"
+features:
+  - Add Ackee to your Nuxt app in seconds
+  - Automatic script loading
+  - Automatic page tracking
+  - Access to tracker with $ackee
+---
+
+Tracked without being tracked on Nuxt with [Ackee analytics](https://ackee.electerious.com)
+
+<p class="flex items-center">Enjoy light and dark mode:&nbsp;<app-color-switcher class="inline-flex ml-2"></app-color-switcher></p>
+
+## Features
+
+<list :items="features"></list>
+
+[Check Release Notes](https://github.com/bdrtsky/nuxt-ackee/blob/master/CHANGELOG.md)
+
+## Ackee?
+
+[Ackee Analytics](https://ackee.electerious.com) is a self-hosted, Node.js based analytics tool that has an incentive on privacy.
+
+You can set up your own Ackee instance pretty easily on [Netlify](https://docs.ackee.electerious.com/#/docs/Get%20started#with-netlify), [Vercel](https://docs.ackee.electerious.com/#/docs/Get%20started#with-vercel), and [many more](https://docs.ackee.electerious.com/#/docs/Get%20started). [MongoDB Atlas](https://www.mongodb.com/pricing) can also provide you with a cloud-based Mongo database.
+
+This module allows you to plug easily your Nuxt website to a domain on your Ackee installation!
+
+## Setup
+
+Add `nuxt-ackee` dependency to your project:
+
+<code-group>
+  <code-block label="Yarn" active>
+
+```bash
+yarn add --dev nuxt-ackee
+```
+
+  </code-block>
+  <code-block label="NPM">
+
+```bash
+npm install --save-dev nuxt-ackee
+```
+
+  </code-block>
+</code-group>
+
+Then add `nuxt-ackee` to the `buildModule` section of `nuxt.config.js` and configure your Ackee `server` and `domainId`:
+
+```javascript[nuxt.config.js]
+{
+  buildModules: [
+    '@nuxtjs/prismic'
+  ],
+  ackee: {
+    server: 'https://example.com',
+    domainId: 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'
+    /* see configuration for more */
+  }
+}
+```
+
+<alert>
+
+Use the `modules` property instead of `buildModules` if you are using `nuxt < 2.9.0`
+
+</alert>
+
+Voilà! You're Nuxt application is ready to report to your Ackee domain~
+
+## Usage
+
+This module injects `$ackee` into your application. It contains an [`ackee-tracker` instance](https://github.com/electerious/ackee-tracker#%EF%B8%8F-instance-api) that you can use to create and update new records and action:
+
+```vue[pages/contact.vue]
+<template>
+  <form @submit="onSubmit"><!-- ... --></form>
+</template>
+
+<script>
+export default {
+  methods: {
+    onSubmit(e) {
+      this.$ackee.action(
+        'ffffffff-gggg-hhhh-iiii-jjjjjjjjjjjj', // actionId
+        {
+          key: "Contact Form Submit",
+          value: 1
+        }
+      );
+    }
+  }
+};
+</script>
+```
+
+> More about events on [Ackee documentation](https://docs.ackee.electerious.com/#/docs/Events).
+
+<alert>
+
+This module already takes care of creating a new record on every page navigation. That's why in most cases you don't need to get beyond the above setup!
+
+</alert>
+
+## Configuration
+
+You can configure `nuxt-ackee` with the `ackee` property in your `nuxt.config.js` or directly when registering the module in the `buildModules` array by using the array syntax.
+
+<code-group>
+  <code-block label="ackee key" active>
+
+```javascript[nuxt.config.js]
+export default {
+  ackee: {
+    /* configuration */
+  }
+};
+```
+
+  </code-block>
+  <code-block label="buildModules array">
+
+```javascript[nuxt.config.js]
+export default {
+  buildModules: {
+    ['nuxt-ackee', {
+      /* configuration */
+    }]
+  }
+}
+```
+
+  </code-block>
+</code-group>
+
+### Properties
+
+### server
+
+- Type: `String`
+- `required`
+
+An URL that points to your [Ackee](https://github.com/electerious/Ackee) installation. The `server` property must not end with a slash.
+
+```javascript[nuxt.config.js]
+ackee: {
+  // Nuxt.js private Ackee server example
+  server: 'https://ackee.nuxtjs.com';
+}
+```
+
+### domainId
+
+- Type: `String`
+- `required`
+
+Id of the desired domain to target.
+
+```javascript[nuxt.config.js]
+ackee: {
+  // example domain id
+  domainId: 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
+}
+```
+
+### detailed
+
+- Type: `Boolean`
+- Default: `false`
+
+Enable or disable tracking of personal data.
+
+```javascript[nuxt.config.js]
+ackee: {
+  // tells Ackee to gather detailed data
+  detailed: true;
+}
+```
+
+> See [Ackee's recommendations](https://docs.ackee.electerious.com/#/docs/Anonymization#personal-data) regarding this feature.
+
+### ignoreLocalhost
+
+- Type: `Boolean`
+- Default: `true`
+
+Enable or disable tracking when on localhost.
+
+```javascript[nuxt.config.js]
+ackee: {
+  // also tracks when on localhost
+  ignoreLocalhost: false;
+}
+```
+
+### ignoreOwnVisits
+
+- Type: `Boolean`
+- Default: `true`
+
+Enable or disable the tracking of your own visits.
+
+```javascript[nuxt.config.js]
+ackee: {
+  // also tracks your own visits
+  ignoreOwnVisits: false;
+}
+```
+
+<alert type="warning">
+
+For this feature to work you need to set up an `Access-Control-Allow-Credentials` header on your Ackee installation, [more info](https://docs.ackee.electerious.com/#/docs/CORS%20headers#credentials).
+
+</alert>
+
+<alert type="warning">
+
+This feature should be turned off when using a wildcard `Access-Control-Allow-Origin` header, [more info](https://docs.ackee.electerious.com/#/docs/Options#cors-headers).
+
+</alert>
+
+## Contributing
+
+You're welcome to contribute to this module!
+
+1. Clone this repository
+2. Install dependencies using `yarn install` or `npm install`
+3. Start development server using `yarn dev` or `npm run dev`
+
+## License
+
+[MIT License](./LICENSE)
+
+Copyright (c) Sergey Bedritsky <sergey.bedritsky@gmail.com>
