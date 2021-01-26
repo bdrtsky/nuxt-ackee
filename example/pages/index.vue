@@ -23,7 +23,7 @@
     <button @click="sendEvent">
       Send Event
     </button>
-    <template v-if="typeof $ackee.details.unknown !== 'undefined'">
+    <template v-if="$ackee.details">
       <hr>
       Only when <pre>options.detailed = 'opt-in'|'opt-out'</pre>:<br>
       Value: <pre>{{ $ackee.details.value }}</pre><br>
