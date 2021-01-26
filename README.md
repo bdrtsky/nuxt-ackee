@@ -16,6 +16,7 @@
 ## Features
 
 - Add Ackee to your Nuxt app in seconds
+- Ask for user consent easily
 - Automatic script loading
 - Automatic page tracking
 - Access to tracker with `$ackee`
