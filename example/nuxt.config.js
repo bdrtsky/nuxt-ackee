@@ -11,7 +11,7 @@ module.exports = {
   ackee: {
     server: 'https://example.com',
     domainId: 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee',
-    detailed: true,
+    detailed: 'opt-in',
     ignoreLocalhost: false,
     ignoreOwnVisits: false
   },
