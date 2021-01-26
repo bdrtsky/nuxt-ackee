@@ -70,7 +70,7 @@ Use the `modules` property instead of `buildModules` if you are using `nuxt < 2.
 
 </alert>
 
-Voilà! You're Nuxt application is ready to report to your Ackee domain~
+Voilà! Your Nuxt application is ready to report to your Ackee domain~
 
 ## Usage
 
