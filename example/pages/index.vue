@@ -23,15 +23,20 @@
     <button @click="sendEvent">
       Send Event
     </button>
-    <template v-if="typeof $ackee.unknown !== 'undefined'">
+    <template v-if="typeof $ackee.details.unknown !== 'undefined'">
       <hr>
       Only when <pre>options.detailed = 'opt-in'|'opt-out'</pre>:<br>
-      Detailed: <pre>{{ $ackee.detailed }}</pre>, unknown: <pre>{{ $ackee.unknown }}</pre><br>
-      <button @click="optIn">
+      Value: <pre>{{ $ackee.details.value }}</pre><br>
+      Preference: <pre>{{ $ackee.details.preference }}</pre><br>
+      Unknown: <pre>{{ $ackee.details.unknown }}</pre><br>
+      <button @click="$ackee.details.optIn">
         Opt-In
       </button>
-      <button @click="optOut">
+      <button @click="$ackee.details.optOut">
         Opt-Out
+      </button>
+      <button @click="clearStorage">
+        Clear local storage
       </button>
     </template>
   </div>
@@ -48,11 +53,9 @@ export default {
         )
       }
     },
-    optIn () {
-      this.$ackee.optInDetails()
-    },
-    optOut () {
-      this.$ackee.optOutDetails()
+    clearStorage () {
+      window.localStorage.clear()
+      window.location.reload()
     }
   }
 }
