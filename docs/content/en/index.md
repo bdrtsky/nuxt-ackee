@@ -35,6 +35,7 @@ Add `nuxt-ackee` dependency to your project:
 <code-group>
   <code-block label="Yarn" active>
 
+<!-- prettier-ignore -->
 ```bash
 yarn add --dev nuxt-ackee
 ```
@@ -42,6 +43,7 @@ yarn add --dev nuxt-ackee
   </code-block>
   <code-block label="NPM">
 
+<!-- prettier-ignore -->
 ```bash
 npm install --save-dev nuxt-ackee
 ```
@@ -51,6 +53,7 @@ npm install --save-dev nuxt-ackee
 
 Then add `nuxt-ackee` to the `buildModule` section of `nuxt.config.js` and configure your Ackee `server` and `domainId`:
 
+<!-- prettier-ignore -->
 ```javascript[nuxt.config.js]
 {
   buildModules: [
@@ -74,7 +77,7 @@ Voilà! Your Nuxt application is ready to report to your Ackee domain~
 
 ## Usage
 
-This module injects `$ackee` into your application. It contains an [`ackee-tracker` instance](https://github.com/electerious/ackee-tracker#%EF%B8%8F-instance-api) (but not only, see [asking for consent](#asking-for-content)). You can use it to create and update new records and action, and more.
+This module injects `$ackee` into your application. It contains an [`ackee-tracker` instance](https://github.com/electerious/ackee-tracker#%EF%B8%8F-instance-api) (but not only, see [asking for consent](#asking-for-consent)). You can use it to create and update new records, actions, and more.
 
 <alert>
 
@@ -84,6 +87,7 @@ This module already takes care of creating a new record on every page navigation
 
 ### Sending Events
 
+<!-- prettier-ignore -->
 ```vue[pages/contact.vue]
 <template>
   <form @submit="onSubmit"><!-- ... --></form>
@@ -106,12 +110,17 @@ export default {
 </script>
 ```
 
-> More about events on [Ackee documentation](https://docs.ackee.electerious.com/#/docs/Events).
+<alert>
+
+Ackee recommends to ask user for consent before sending events. For that purpose you can leverage this module's injected [`details.value`](#detailsvalue) property when using the `detailed` option, see [asking for consent](#asking-for-consent) below. More about events on [Ackee documentation](https://docs.ackee.electerious.com/#/docs/Events).
+
+</alert>
 
 ### Asking for Consent
 
 The [detailed option](#detailed) allows you to gather personal data from your visitors. [Ackee recommends](https://docs.ackee.electerious.com/#/docs/Anonymization#personal-data) asking for user consent before enabling this option. To get started, set the `detailed` option in your Ackee configuration:
 
+<!-- prettier-ignore -->
 ```javascript[nuxt.config.js]
 ackee: {
   // do not gather detailed data unless user gives permission
@@ -125,14 +134,15 @@ ackee: {
 
 From now on, a new object will be available at the key `details` in the injected `$ackee` object with the following methods and reactive properties:
 
-- `optIn()`: opt user in for sharing detailed data;
-- `optOut()`: opt user out for sharing detailed data;
-- `value`: can be used to know the current user status regarding sharing detailed data;
+- `optIn()`: opt-in current user from sharing detailed data;
+- `optOut()`: opt-out current user from sharing detailed data;
+- `value`: can be used to know if Ackee is allowed to send data;
 - `preference`: contains the user's preference if any;
 - `unknown`: since user opt status is detected on client-side we cannot know it when on server side. Use this property to prevent showing your banner there.
 
 **Example:**
 
+<!-- prettier-ignore -->
 ```vue[components/ConsentBanner.vue]
 <!-- assuming `detailed: 'opt-in'` -->
 <template>
@@ -152,6 +162,7 @@ You can configure `nuxt-ackee` with the `ackee` property in your `nuxt.config.js
 <code-group>
   <code-block label="ackee key" active>
 
+<!-- prettier-ignore -->
 ```javascript[nuxt.config.js]
 export default {
   ackee: {
@@ -163,6 +174,7 @@ export default {
   </code-block>
   <code-block label="buildModules array">
 
+<!-- prettier-ignore -->
 ```javascript[nuxt.config.js]
 export default {
   buildModules: {
@@ -185,6 +197,7 @@ export default {
 
 An URL that points to your [Ackee](https://github.com/electerious/Ackee) installation. The `server` property must not end with a slash.
 
+<!-- prettier-ignore -->
 ```javascript[nuxt.config.js]
 ackee: {
   // Nuxt.js private Ackee server example
@@ -199,6 +212,7 @@ ackee: {
 
 Id of the desired domain to target.
 
+<!-- prettier-ignore -->
 ```javascript[nuxt.config.js]
 ackee: {
   // example domain id
@@ -211,13 +225,14 @@ ackee: {
 - Type: `Boolean|String`
 - Default: `false`
 
-Enable or disable tracking of personal data. Available values are:
+Enable or disable tracking of personal data. Possible values are:
 
 - `false`, never collect detailed data;
 - `true`, always collect detailed data;
 - `'opt-in'`, do not gather detailed data unless user gives permission;
 - `'opt-out'`, gather detailed data unless user ask not to.
 
+<!-- prettier-ignore -->
 ```javascript[nuxt.config.js]
 ackee: {
   // tells Ackee to gather detailed data only with user's permission
@@ -234,6 +249,7 @@ ackee: {
 
 Enable or disable tracking when on localhost.
 
+<!-- prettier-ignore -->
 ```javascript[nuxt.config.js]
 ackee: {
   // also tracks when on localhost
@@ -248,6 +264,7 @@ ackee: {
 
 Enable or disable the tracking of your own visits.
 
+<!-- prettier-ignore -->
 ```javascript[nuxt.config.js]
 ackee: {
   // also tracks your own visits
@@ -274,6 +291,7 @@ This feature should be turned off when using a wildcard `Access-Control-Allow-Or
 
 When using `'opt-in'` or `'opt-out'` with the [detailed](#detailed) option, used to determine the local storage key used to save user's preference.
 
+<!-- prettier-ignore -->
 ```javascript[nuxt.config.js]
 ackee: {
   // store user's preference at `custom-key` inside their local storage
@@ -283,8 +301,9 @@ ackee: {
 
 ### Defaults
 
-Default configuration only expects you to provide your [Ackee server](#server) and [Domain ID](#domainid).
+Default configuration only expects you to provide your [Ackee server](#server) and [domain ID](#domainid).
 
+<!-- prettier-ignore -->
 ```javascript[nuxt.config.js]
 export default {
   ackee: {
@@ -300,7 +319,13 @@ export default {
 
 ## \$ackee object
 
-This module globally injects a `$ackee` object, meaning that you can access it anywhere using `this.$prismic`. For plugins, `asyncData`, `nuxtServerInit` and middlewares, you can access it from `context.$ackee`.
+This module globally injects a `$ackee` object, meaning that you can access it anywhere using `this.$ackee`. For plugins, `asyncData`, `nuxtServerInit` and middlewares, you can access it from `context.$ackee`.
+
+<alert type="warning">
+
+`details.*` methods and properties are only available when using `'opt-in'` or `'opt-out'` with the [detailed](#detailed) option.
+
+</alert>
 
 ### Methods
 
@@ -312,56 +337,26 @@ Those methods are directly forwarded from [`ackee-tracker` instance API](https:/
 
 Opt-in current user from sharing detailed data.
 
-<alert type="warning">
-
-Only available when using `'opt-in'` or `'opt-out'` with the [detailed](#detailed) option.
-
-</alert>
-
 #### details.optOut()
 
 Opt-out current user from sharing detailed data.
-
-<alert type="warning">
-
-Only available when using `'opt-in'` or `'opt-out'` with the [detailed](#detailed) option.
-
-</alert>
 
 ### Properties
 
 #### details.value
 
 - Type: `Boolean`
-- Value: `true` when user agreed to share detailed data.
-
-<alert type="warning">
-
-Only available when using `'opt-in'` or `'opt-out'` with the [detailed](#detailed) option.
-
-</alert>
+- Value: `true` when Ackee is allowed to send detailed data.
 
 #### details.preference
 
 - Type: `String`
-- Value: `null` when no preference has been set, `'opted-in'`, `'opted-out'`
-
-<alert type="warning">
-
-Only available when using `'opt-in'` or `'opt-out'` with the [detailed](#detailed) option.
-
-</alert>
+- Values: `null` when no preference has been set, `'opted-in'`, `'opted-out'`
 
 #### details.unknown
 
 - Type: `Boolean`
-- Value: `true` when opt status is not yet detected before client-side.
-
-<alert type="warning">
-
-Only available when using `'opt-in'` or `'opt-out'` with the [detailed](#detailed) option.
-
-</alert>
+- Value: `true` when opt status is not yet detected, before client-side.
 
 ## Contributing
 
