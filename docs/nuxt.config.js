@@ -1,8 +1,10 @@
-import theme from '@nuxt/content-theme-docs'
+import { withDocus } from 'docus'
 
-export default theme({
+export default withDocus({
   docs: {
-    primaryColor: '#65DEB1'
+    colors: {
+      primary: '#65deb1'
+    }
   },
   buildModules: ['nuxt-ackee'],
   ackee: {
