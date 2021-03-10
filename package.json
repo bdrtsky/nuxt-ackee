@@ -20,7 +20,7 @@
     "test": "yarn lint && jest"
   },
   "dependencies": {
-    "ackee-tracker": "^4.0.0",
+    "ackee-tracker": "^5.0.1",
     "defu": "^3.1.0"
   },
   "devDependencies": {

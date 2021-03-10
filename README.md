@@ -13,7 +13,21 @@
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 - [📖 &nbsp;Read the documentation](https://nuxt-ackee.netlify.app)
 
-## Features
+```js
+{
+  // use `modules` property is using Nuxt < 2.9.0
+  buildModules: [
+    'nuxt-ackee'
+  ],
+  ackee: {
+    server: 'https://example.com',
+    domainId: 'xxx-xxx-xxx',
+    detailed: true, // defaults to false
+    ignoreLocalhost: false, // defaults to true
+    ignoreOwnVisits: false // defaults to true
+  }
+}
+```
 
 - Add Ackee to your Nuxt app in seconds
 - Ask for user consent easily
@@ -21,7 +35,7 @@
 - Automatic page tracking
 - Access to tracker with `$ackee`
 
-[📖 &nbsp;Read the documentation](https://nuxt-ackee.netlify.app)
+It will also expose `this.$ackee` and `context.$ackee` on client-side which is an [instance of ackee-tracker](https://github.com/electerious/ackee-tracker#%EF%B8%8F-api).
 
 ## Development
 
