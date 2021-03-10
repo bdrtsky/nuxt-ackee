@@ -29,15 +29,16 @@ yarn add --dev nuxt-ackee # or npm install --save-dev nuxt-ackee
   ackee: {
     server: 'https://example.com',
     domainId: 'xxx-xxx-xxx',
+    detailed: true, // defaults to false
     ignoreLocalhost: false, // defaults to true
-    detailed: true // defaults to false
+    ignoreOwnVisits: false // defaults to true
   }
 }
 ```
 
 The module will directly record each route (initial + client-side navigation).
 
-It will also expose `this.$ackee` and `context.$ackee` on client-side which is an [instance of ackee-tracker](https://github.com/electerious/ackee-tracker#instance-api).
+It will also expose `this.$ackee` and `context.$ackee` on client-side which is an [instance of ackee-tracker](https://github.com/electerious/ackee-tracker#%EF%B8%8F-api).
 
 ## Development
 
