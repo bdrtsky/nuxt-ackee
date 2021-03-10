@@ -1,3 +1,5 @@
+[![nuxt-ackee](/docs/static/preview.png)](https://nuxt-ackee.netlify.app)
+
 # nuxt-ackee
 
 [![npm version][npm-version-src]][npm-version-href]
@@ -6,19 +8,10 @@
 [![Codecov][codecov-src]][codecov-href]
 [![License][license-src]][license-href]
 
-> Nuxt.js module for [Ackee analytics](https://ackee.electerious.com)
+> Tracked without being tracked on Nuxt with [Ackee analytics](https://ackee.electerious.com)
 
-[📖 **Release Notes**](./CHANGELOG.md)
-
-## Setup
-
-1. Add `nuxt-ackee` dependency to your project
-
-```bash
-yarn add --dev nuxt-ackee # or npm install --save-dev nuxt-ackee
-```
-
-2. Add `nuxt-ackee` to the `buildModules` section of `nuxt.config.js`
+- [✨ &nbsp;Release Notes](/CHANGELOG.md)
+- [📖 &nbsp;Read the documentation](https://nuxt-ackee.netlify.app)
 
 ```js
 {
@@ -36,7 +29,11 @@ yarn add --dev nuxt-ackee # or npm install --save-dev nuxt-ackee
 }
 ```
 
-The module will directly record each route (initial + client-side navigation).
+- Add Ackee to your Nuxt app in seconds
+- Ask for user consent easily
+- Automatic script loading
+- Automatic page tracking
+- Access to tracker with `$ackee`
 
 It will also expose `this.$ackee` and `context.$ackee` on client-side which is an [instance of ackee-tracker](https://github.com/electerious/ackee-tracker#%EF%B8%8F-api).
 
@@ -44,7 +41,7 @@ It will also expose `this.$ackee` and `context.$ackee` on client-side which is a
 
 1. Clone this repository
 2. Install dependencies using `yarn install` or `npm install`
-3. Start development server using `npm run dev`
+3. Start development server using `yarn dev` or `npm run dev`
 
 ## License
 
