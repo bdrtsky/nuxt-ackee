@@ -1,3 +1,9 @@
+### **📣⚠📣 `nuxt-ackee` is moving to `@nuxtjs/ackee` 📣⚠📣**
+
+**Ackee module for Nuxt.js has been transferred to the [nuxt-community](https://github.com/nuxt-community) organization. A new version has been released taking advantage of the latest features coming with Ackee. Discover the new doc at [ackee.nuxtjs.org](https://ackee.nuxtjs.org)!**
+
+**If you're looking for the old version of this module, check out the [v2 branch](https://github.com/bdrtsky/nuxt-ackee/tree/v2)~**
+
 # @nuxtjs/ackee
 
 [![npm version][npm-version-src]][npm-version-href]
