@@ -55,7 +55,7 @@ It will also expose `this.$ackee` and `context.$ackee` on client-side which is a
 
 [MIT License](./LICENSE)
 
-Copyright (c) Sergey Bedritsky <sergey.bedritsky@gmail.com>
+Copyright (c) Serhii Bedrytskyi https://serhii.be
 
 <!-- Badges -->
 
